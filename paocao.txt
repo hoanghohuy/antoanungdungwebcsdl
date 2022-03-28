@@ -1,0 +1,34 @@
+Chúng em là nhóm 18 xin phép thực hiện video demo đồ án cuối kì môn học ATUDW và CSDL.
+Đầu tiên em xin cảm ơn thầy trong thời gian học tập đã giảng dạy đã hướng dẫn tận tình giúp chúng
+em hoàn thành được đồ án này. Chúc thầy sức khỏe và thành công trong sự nghiệp cao quý.
+--------------------------------------------------------------------------------------------------
+Chúng em đã xây dựng 1 project website quản lý nhân viên được viết bằng ngôn ngữ lập
+trình PHP và cơ sở dữ liệu MYSQL.
+Các chức năng chính của phần mềm bao gồm: 
+    - Authentication
++ Đăng nhập: 
+    ++Chống SQL Injection:  sử dụng hàm real_escapse_string thì client sẽ chuyển xuống cho mysql xử lý.
+    ++ mã hóa mật khẩu bằng hàm mã hóa md5()
+
++ Xác thực đa nhân tố: Xác thực đa nhân tố giúp website tăng phần bảo mật, hạn chế thời gian hacker có thể tấn công brute force. Ở đây chúng em sử dụng reCaptcha của Google.
+
++ Chức năng quên mật khẩu: gửi mật khẩu về mail sử dụng thư viện PHP MAILER
+
++ Chức năng đổi mật khẩu : nhập đúng mật khẩu cũ và nhập mật khẩu mới
+    - Quản lý:
++ Xem danh sách nhân viên: tải dữ liệu nhân viên từ cơ sở dữ liệu
++ Chức năng xem thông tin từng nhân viên
++ Chức năng thêm nhân viên: nhập dữ liệu nhân viên, trong đó dữ liệu mật khẩu và lương được mã hóa bằng hàm mã hóa AES_256
++ Chức năng sửa nhân viên: lấy dữ liệu của nhân viên cần sửa xuống và giải mã trường mật khẩu và
+ lương bằng hàm giải mã AES_256
++ Chức năng xóa nhân viên: Xóa dữ liệu nhân viên
++ Chặn quyền xóa thông tin quản trị viên: 
++ Chặn truy cập đường dẫn link (chỉ quản lý khi đăng nhập thành công vào hệ thống) bằng Session, nếu không trả về trang đăng nhập.
++ Server: 
+Mã hóa mật khẩu, lương
++ Database: (nhom18_quanlynhanvien, c4ca4238a0b923820dcc509a6f75849b)
+Yêu cầu đăng nhập mỗi lần truy cập vào database, tự động đăng nhập khi không thực hiện tác vụ trong thời gian dài, sử dụng mật khẩu mã hóa tăng tính bảo mật
+    - Security:
++ Chống SQL injection: sử dụn hàm real_escapse_string
++ Chống XSS: Sử dụng hàm lọc htmlspecialchars() để biến đổi các kí tự đặc biệt như <, / ngăn chặn chạy các script nguy hiểm.( <script>window.location="https://www.w3schools.com/"</script> )
++ Chương trình đánh giá điểm yếu: Acunetix
